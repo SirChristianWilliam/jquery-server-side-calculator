@@ -11,11 +11,20 @@ app.listen(port, () => {
 })
 
 let content = [
-    "apple","pear","banana"
+    "Past Calculations:"
 ];
 
 app.get('/currentVal', (req,res) => {
     console.log("getting content",content);
     res.send(content);
+})
+
+app.post('/numberInput', (req,res) => {
+    console.log('in POST /numberInput');
+    let numOneFromClient = req.body.firstNum;
+    let numTwoFromClient = req.body.secondNum;
+    let combined = Number(numOneFromClient) + Number(numTwoFromClient);
+    content.push(combined);
+    res.sendStatus(201);
 })
 
