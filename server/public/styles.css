@@ -17,3 +17,6 @@ form p {
     padding:3px 15px;
     background-color: white;
 }
+p {
+    cursor: pointer;
+}
