@@ -10,3 +10,12 @@ app.listen(port, () => {
     console.log("Show this when the server is active");
 })
 
+let content = [
+    "apple","pear","banana"
+];
+
+app.get('/currentVal', (req,res) => {
+    console.log("getting content",content);
+    res.send(content);
+})
+
