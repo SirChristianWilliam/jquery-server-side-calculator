@@ -1,3 +1,19 @@
 body {
     background-image: linear-gradient(to right,grey,darkgrey);
 }
+
+form {
+
+}
+
+input {
+
+}
+
+form p {
+    display:inline;
+    border:1px solid black;
+    border-radius: 5px;
+    padding:3px 15px;
+    background-color: white;
+}

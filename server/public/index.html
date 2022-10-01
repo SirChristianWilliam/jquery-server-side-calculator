@@ -10,6 +10,29 @@
     <title>Jquery Server Calculator</title>
 </head>
 <body>
+    <header id = "headerContainer">
+        <h1>Server Side Calculator</h1>
+    </header>
+    <form id="myForm">
+        <input id="leftNumber" placeholder="0" type="text"/>
+        <p id="plusBtn">+</p>
+        <p id="minusBtn">-</p>
+        <p id="multiplyBtn">*</p>
+        <p id="divideBtn">/</p>
+        <input id="rightNumber" placeholder="0" type="text"/>
+        <button id = "equalBtn"> = </button>
+        <button id="clearBtn">C</button>
+    </form>
     
+<div id="currenGuessContainer">
+    <!--display the value from calculation here-->
+</div>
+
+<main id="pastCalculationsContainer">
+    <ul id="pastCalculations">
+    <!--append past data here-->
+    </ul>
+</main>
+
 </body>
 </html>
