@@ -5,9 +5,12 @@ function onReady() {
     
     $('p').on('click',operatorClicked);
 
-   $('#myForm').on('submit', $('#equalBtn'), submitOn); //When the equalBtn within the form is clicked, call submitOn function
-$('#leftNumber').on('input',changeOperator);
-$('#rightNumber').on('input',changeOperator);
+    $('#myForm').on('submit', $('#equalBtn'), submitOn); //When the equalBtn within the form is clicked, call submitOn function
+    
+    $('#leftNumber').on('input',changeOperator);
+    $('#rightNumber').on('input',changeOperator);
+
+    $('#clearBtn').on('click',clearForm);
 
 }
 function changeOperator() {
@@ -82,10 +85,9 @@ function submitOn(evt) {
 
     console.log("In submitOn");
     if(!whichIsIt || whichIsIt == "" || whichIsIt == undefined) {
-        alert("Please select a calculation button")
+       // alert("Please select a calculation button")
         return;
     }
-
     let newObj = {
        nummer: operatorNumber
     }
@@ -195,5 +197,10 @@ function operatorClicked() {
         })
 
     }
+
+}
+function clearForm() {
+    $('#leftNumber').val('');
+    $('#rightNumber').val('');
 
 }
