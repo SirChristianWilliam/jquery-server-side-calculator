@@ -8,20 +8,24 @@ function onReady() {
    $('#myForm').on('submit', $('#equalBtn'), submitOn); //When the equalBtn within the form is clicked, call submitOn function
     
 }
-let content;
+let content = [];
+let contentArray = [];
 let numberFromServer;
+let operatorNumber = 0;
+let whichIsIt;
 //INITIAL GETTER AND RENDER
 
 function loadOn() {
     console.log("in loadOn"); //Works
+
     $.ajax({ //Create request to server
         url: '/currentVal',
         method: 'GET'
     })
     .then((response) => { //Server sends back response
         content = response; //Server response is an array, apply that value to variable "content"
-        
-        render(content); // Send this updated information to be rendered
+        return;
+          // Send this updated information to be rendered
     })
     .catch((err) => {
         console.log('GET /in currentVal error',err)
@@ -30,46 +34,59 @@ function loadOn() {
 
 function render() { //Last function used to display the content on the DOM
     console.log("in render function"); // Works
-     $('#pastCalculations').empty(); //Empty the past calculations container
-    
-         for(let x of content) { //Loop through the content of the array
-            $('#pastCalculations').append(`
+      //Empty the past calculations container
+
+      $.ajax({ //Create request to server
+        url: '/currentVal',
+        method: 'GET'
+    })
+    .then((response) => { //Server sends back response
+        content = response; //Server response is an array, apply that value to variable "content"
+           // Send this updated information to be rendered
+    })
+    .catch((err) => {
+        console.log('GET /in currentVal error',err)
+    })
+
+        console.log(content,"YARRRR");
+        $('#pastCalculations').empty();
+        
+         //Loop through the content of the array
+            $('#pastCalculationsContainer').append(`
             <ul>
-                <li>
-                    ${x}
+                 <li>
+                   ${$('#leftNumber').val()} ${whichIsIt}
+                   ${$('#rightNumber').val()}  = 
+                   ${operatorNumber}
                 </li>
             </ul>
-            `) // Append the state array to the DOM that we just emptied
+              `) // Append the state array to the DOM that we just emptied
             $('#currentAnswerContainer').empty();
             $('#currentAnswerContainer').append(`
-            ${x}
+            ${operatorNumber}
             `);
-        }
-}
+ }
 
 //END OF GETTER AND RENDER
 
 function submitOn(evt) {
-    
-    let finalNumber = calculateTheNumbers();
+    console.log(operatorNumber,"OPERATOR #")
+    //let finalNumber = calculateTheNumbers();
    
     evt.preventDefault(); //Prevent page reload
     console.log("In submitOn");
 
     let newObj = {
-        firstNum: $('#leftNumber').val(),
-        secondNum: $('#rightNumber').val()
+       nummer: operatorNumber
     }
-
     $.ajax({
         url: '/numberInput',
         method: 'POST',
         data: newObj
     })
     .then((response) => {
-        console.log('POST /numberInput',response);
-        content = response;
-        console.log("content!!!!!!!!!!");
+        console.log('POST /numberInput',response.totally);
+         console.log("content!!!!!!!!!!");
           render();
     })
     .catch((err) => {
@@ -79,11 +96,9 @@ function submitOn(evt) {
 }
 
 function calculateTheNumbers(mathedUp) {
-    let numberFromOperator = mathedUp;
-    console.log("In calculateTheNumbers function");
-    console.log(numberFromOperator)
-    return numberFromOperator;
-}
+     console.log("In calculateTheNumbers function",mathedUp.total);
+      operatorNumber = mathedUp.total;
+  }
 //END OF SUBMIT FUNCTION
 
 function operatorClicked() {
@@ -105,8 +120,9 @@ function operatorClicked() {
         .then((response) => {
             numberFromServer = response;
             console.log('POST /plusSelected',response);
+             calculateTheNumbers(numberFromServer);
+             whichIsIt = "+"
 
-            calculateTheNumbers(numberFromServer);
             return;
         })
         .catch((err) => {
@@ -121,7 +137,9 @@ function operatorClicked() {
         .then((response) => {
             console.log('POST /minusSelected',response);
             numberFromServer = response;
-            calculateTheNumbers(numberFromServer);           
+            calculateTheNumbers(numberFromServer);  
+            whichIsIt = "-"
+         
              return;
          })
         .catch((err) => {
@@ -138,6 +156,8 @@ function operatorClicked() {
             console.log('POST /multiplySelected',response);
             numberFromServer = response;
             calculateTheNumbers(numberFromServer);
+            whichIsIt = "*"
+
             return;
 
          })
@@ -155,6 +175,8 @@ function operatorClicked() {
             console.log('POST /divideSelected',response);
              numberFromServer = response;
             calculateTheNumbers(numberFromServer);
+            whichIsIt = "/"
+
             return;
 
          })
