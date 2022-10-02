@@ -32,7 +32,7 @@ app.post('/numberInput', (req,res) => {
       res.send(combined);
 })
 
-//DEALING WITH OPERATOR CLICKED
+//DEALING WITH THE OPERATOR THAT WAS CLICKED
  
 app.post('/plusSelected', (req,res) => {
     console.log('in POST /plusSelected');
@@ -81,5 +81,5 @@ app.post('/divideSelected', (req,res) => {
 })
 
 
-//END OF DEALING WITH OPERATOR CLICKED
+//END OF DEALING WITH THE OPERATOR CLICKED
 

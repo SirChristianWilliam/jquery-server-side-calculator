@@ -6,8 +6,13 @@ function onReady() {
     $('p').on('click',operatorClicked);
 
    $('#myForm').on('submit', $('#equalBtn'), submitOn); //When the equalBtn within the form is clicked, call submitOn function
-    
+$('#leftNumber').on('input',changeOperator);
+$('#rightNumber').on('input',changeOperator);
+
 }
+function changeOperator() {
+    whichIsIt = "";
+  }
 let content = [];
 let contentArray = [];
 let numberFromServer;
@@ -74,7 +79,12 @@ function submitOn(evt) {
     //let finalNumber = calculateTheNumbers();
    
     evt.preventDefault(); //Prevent page reload
+
     console.log("In submitOn");
+    if(!whichIsIt || whichIsIt == "" || whichIsIt == undefined) {
+        alert("Please select a calculation button")
+        return;
+    }
 
     let newObj = {
        nummer: operatorNumber
