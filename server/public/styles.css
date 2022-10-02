@@ -1,8 +1,7 @@
 body {
     background-image: linear-gradient(to right,grey,darkgrey);
     margin:0;
-    overflow: hidden;
-}
+ }
 
 header {
     width:100%;
@@ -19,19 +18,27 @@ form#myForm {
 }
 
 input#leftNumber {
-    width: 40%;
-    position:absolute;
-    left:10px;
-
-
-}
+    border: 1px solid black;
+    width: 93px;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    top: 150px;
+    left: -5px;
+    padding: 10px 0px;
+    z-index:1;
+ }
 input#rightNumber {
-    width: 40%;
-    position:absolute;
-    right: 10px;
-
-
-
+    border: 1px solid black;
+    width: 93px;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    top: 150px;
+    right: -8px;
+    padding: 10px 0px;
+    z-index:1;
+ 
 }
 
 form p {
@@ -88,37 +95,57 @@ body::after {
 
   p#divideBtn {
     position: relative;
+    top: 84px;
+    border: 1px solid black;
+    left: 8px;
+    border-radius: 5px;
     padding: 9px 18px;
-    top: 319px;
-    left: 10px;
     font-size: 20px;
-
+    z-index:1;
  }
  #equalBtn {
     position: relative;
-    top: 425px;
-    right: 87px;
-    padding: 10px 15px;
+    padding: 8px 18px;
+    top: 321px;
+    cursor:pointer;
+    right: 45px;
     font-size: 20px;
-
+    border: 1px solid black;
+    border-radius: 5px;
  }
  #clearBtn {
-    width:80px;
-    height:40px;
-    position: relative;
-     left: 500px;
-    top: 400px;
+    width: 164px;
+    height: 40px;
+    margin-right: -4px;
     font-size: 20px;
-
+    cursor:pointer;
  }
+ #theClear {
+    width: 100%;
+     position: relative;
+     bottom: 280px;
+     text-align: center;
+ }
+ 
  #past {
     display: inline-block;
     position: relative;
-    left:300px;
+    left: 42px;
+    bottom: 427px;
+ }
+ #pastCalculations {
+    top: -462px;
+    left: 58px;
+    display: inline;
+    position: relative;
+ }
+ #pastCalculationsAdd {
+    position: relative;
+    bottom: 444px;
+    left: 31px;
  }
  #inputContainer {
-    border:1px solid black;
-    width: 200px;
+     width: 200px;
     margin: auto;
     position: relative;
     top: 150px;
@@ -141,12 +168,11 @@ body::after {
     right: 0px;
  }
  #hSixContainer {
-    border: 1px solid red;
-    position: relative;
+     position: relative;
     width: 120%;
     height: 400px;
-    right: 20px;
-
+    right: 13px;
+    bottom: 37px;
 
  }
  #hSixContainer h6 {
@@ -157,49 +183,55 @@ body::after {
     background-color: grey;
     color:white;
     font-size:20px;
+    cursor: pointer;
   }
  .h6One {
     top: 220px;
-    left: 10px;
+    left: 4px;
  }
  .h6Two {
     top: 220px;
-    left: 70px;
+    left: 64px;
  }
  .h6Three {
     top: 220px;
-    left: 130px;
+    left: 124px;
  }
  .h6Four {
     top: 160px;
-    left: 10px;
+    left: 4px;
   } 
  .h6Five {
     top: 160px;
-    left: 70px;
+    left: 64px;
   }
  .h6Six {
     top: 160px;
-    left: 130px;
+    left: 124px;
   } 
  .h6Seven {
      top: 100px;
-    left: 10px;
+    left: 4px;
  }
  .h6Eight {
     top: 100px;
-    left: 70px;
+    left: 64px;
   } 
  .h6Nine {
     top: 100px;
-    left: 130px;
+    left: 124px;
   }
  .h6Zero {
     top: 280px;
     width: 75px !important;
-    left: 10px;
+    left: 4px;
   }
  .h6Period {
     top: 280px;
-    left: 130px;
+    left: 124px;
   }
+
+  #ppp {
+    position: relative;
+    bottom: 294px;
+    left: 30px;  }

@@ -61,7 +61,7 @@ function render() { //Last function used to display the content on the DOM
         
          //Loop through the content of the array
             $('#pastCalculationsContainer').append(`
-            <ul>
+            <ul id="pastCalculationsAdd">
                  <li>
                    ${$('#leftNumber').val()} ${whichIsIt}
                    ${$('#rightNumber').val()}  = 
