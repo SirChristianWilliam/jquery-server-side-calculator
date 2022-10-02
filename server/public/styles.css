@@ -1,12 +1,36 @@
 body {
     background-image: linear-gradient(to right,grey,darkgrey);
+    margin:0;
+    overflow: hidden;
 }
 
-form {
-
+header {
+    width:100%;
+    background-color: black;
+    color:white;
+    padding:20px;
+}
+form#myForm {
+    width:100%;
+    padding:30px;
+    text-align: center;
+    border:0px solid black;
+   
 }
 
-input {
+input#leftNumber {
+    width: 40%;
+    position:absolute;
+    left:10px;
+
+
+}
+input#rightNumber {
+    width: 40%;
+    position:absolute;
+    right: 10px;
+
+
 
 }
 
@@ -14,9 +38,168 @@ form p {
     display:inline;
     border:1px solid black;
     border-radius: 5px;
-    padding:3px 15px;
     background-color: white;
 }
 p {
     cursor: pointer;
+    display:inline;
+ }
+
+body::after {
+    content:   url('stockPhone1.png');
+    top:25%;
+    left:0;
+    bottom:0;
+    right:250px;
+     width:300px;
+     background-repeat: no-repeat;
+    position:fixed;
+     margin:auto;
+    z-index:-1;
+ }
+
+ /* Stretch goals below */
+
+ p#plusBtn {
+    position: relative;
+    top: 139px;
+    left: 157px;
+    padding: 9px 16px;
+    font-size: 20px;
+
+
+ }
+ p#minusBtn {
+    position: relative;
+    top: 199px;
+    left: 108px;
+    padding: 9px 19px;
+    font-size: 20px;
+
+ }
+ p#multiplyBtn {
+    position: relative;
+    top: 260px;
+    padding: 9px 17px;
+    left: 58px;
+    font-size: 20px;
+
 }
+
+  p#divideBtn {
+    position: relative;
+    padding: 9px 18px;
+    top: 319px;
+    left: 10px;
+    font-size: 20px;
+
+ }
+ #equalBtn {
+    position: relative;
+    top: 425px;
+    right: 87px;
+    padding: 10px 15px;
+    font-size: 20px;
+
+ }
+ #clearBtn {
+    width:80px;
+    height:40px;
+    position: relative;
+     left: 500px;
+    top: 400px;
+    font-size: 20px;
+
+ }
+ #past {
+    display: inline-block;
+    position: relative;
+    left:300px;
+ }
+ #inputContainer {
+    border:1px solid black;
+    width: 200px;
+    margin: auto;
+    position: relative;
+    top: 150px;
+    padding: 15px;
+ 
+
+ }
+ #currentAnswerContainer {
+    display: inline;
+    position: absolute;
+    left: 0;
+    top: 75px;
+    width: 100%;
+ }
+ #theAnswerText {
+    position: absolute;
+    border: 1px solid black;
+    width: 100%;
+    top: 30px;
+    right: 0px;
+ }
+ #hSixContainer {
+    border: 1px solid red;
+    position: relative;
+    width: 120%;
+    height: 400px;
+    right: 20px;
+
+
+ }
+ #hSixContainer h6 {
+    padding:10px 13px;
+    width:15px;
+    border:1px solid black;
+    position: absolute;
+    background-color: grey;
+    color:white;
+    font-size:20px;
+  }
+ .h6One {
+    top: 220px;
+    left: 10px;
+ }
+ .h6Two {
+    top: 220px;
+    left: 70px;
+ }
+ .h6Three {
+    top: 220px;
+    left: 130px;
+ }
+ .h6Four {
+    top: 160px;
+    left: 10px;
+  } 
+ .h6Five {
+    top: 160px;
+    left: 70px;
+  }
+ .h6Six {
+    top: 160px;
+    left: 130px;
+  } 
+ .h6Seven {
+     top: 100px;
+    left: 10px;
+ }
+ .h6Eight {
+    top: 100px;
+    left: 70px;
+  } 
+ .h6Nine {
+    top: 100px;
+    left: 130px;
+  }
+ .h6Zero {
+    top: 280px;
+    width: 75px !important;
+    left: 10px;
+  }
+ .h6Period {
+    top: 280px;
+    left: 130px;
+  }

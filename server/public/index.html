@@ -13,26 +13,44 @@
     <header id = "headerContainer">
         <h1>Server Side Calculator</h1>
     </header>
-    <form id="myForm">
-        <input id="leftNumber" placeholder="enter number" required type="text"/>
-        <p id="plusBtn">+</p>
-        <p id="minusBtn">-</p>
-        <p id="multiplyBtn">*</p>
-        <p id="divideBtn">/</p>
-        <input id="rightNumber" placeholder="enter number" required type="text"/>
-        <button id = "equalBtn"> = </button>
-    </form>
-    <button id="clearBtn">C</button>
+        <form id="myForm">
+            <div id="inputContainer">
+            <input id="leftNumber" placeholder="enter number" required type="text"/>
+            <input id="rightNumber" placeholder="enter number" required type="text"/>
+            <h3 id="theAnswerText">Answer:</h3>
+            <div id="currentAnswerContainer">
+                0
+                <!--display the value from calculation here-->
+            </div>
+            <div id="hSixContainer">
+                <h6 class="h6One">1</h6>
+                <h6 class="h6Two">2</h6>
+                <h6 class="h6Three">3</h6>
+                <h6 class="h6Four">4</h6>
+                <h6 class="h6Five">5</h6>
+                <h6 class="h6Six">6</h6>
+                <h6 class="h6Seven">7</h6>
+                <h6 class="h6Eight">8</h6>
+                <h6 class="h6Nine">9</h6>
+                <h6 class="h6Zero">0</h6>
+                <h6 class="h6Period">.</h6>
 
-<h3>Answer:</h3>
-<div id="currentAnswerContainer">
-    0
-    <!--display the value from calculation here-->
-</div>
+
+            <div>
+            <br>
+                </div>
+                <p id="plusBtn">+</p>
+                <p id="minusBtn">-</p>
+                <p id="multiplyBtn">*</p>
+                <p id="divideBtn">/</p>
+            <button id = "equalBtn"> = </button>
+        </form>
+<button id="clearBtn">C</button>
+
 
 
 <main id="pastCalculationsContainer">
-    <h3> Past calculations:</h3>
+    <h3 id="past"> Past calculations:</h3>
     <ul id="pastCalculations">
     <!--append past data here-->
     </ul>

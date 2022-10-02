@@ -11,10 +11,7 @@ app.listen(port, () => {
 })
 
 let content = [];
-let affectedNumber;
-let operatorCalc = [];
-
-  
+ 
 app.get('/currentVal', (req,res) => {
      console.log("getting content",content);
     res.send(content);
@@ -29,7 +26,7 @@ app.post('/numberInput', (req,res) => {
         totally: req.body.nummer
     }
      content.push(combined);
-      res.send(combined);
+     res.send(combined);
 })
 
 //DEALING WITH THE OPERATOR THAT WAS CLICKED
@@ -41,7 +38,7 @@ app.post('/plusSelected', (req,res) => {
     let combined = {
         total: Number(numOneFromClient) + Number(numTwoFromClient)
     }
-       console.log(combined.total);
+       console.log(combined.total, "HERRO");
          res.send(combined);
 })
 
@@ -54,8 +51,6 @@ app.post('/minusSelected', (req,res) => {
      }
       console.log(combined.total);
       res.send(combined);
-
- 
 })
 
 app.post('/multiplySelected', (req,res) => {
