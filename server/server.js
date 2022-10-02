@@ -11,6 +11,9 @@ app.listen(port, () => {
 })
 
 let content = [];
+let affectedNumber;
+operatorCalc = [];
+
   
 app.get('/currentVal', (req,res) => {
     console.log("getting content",content);
@@ -21,6 +24,7 @@ app.post('/numberInput', (req,res) => {
     console.log('in POST /numberInput');
     let numOneFromClient = req.body.firstNum;
     let numTwoFromClient = req.body.secondNum;
+
     let combined = {
         left: Number(numOneFromClient),
         right: Number(numTwoFromClient)
@@ -37,14 +41,14 @@ app.post('/plusSelected', (req,res) => {
     let numTwoFromClient = req.body.righter;
     let combined = {
         total: Number(numOneFromClient) + Number(numTwoFromClient)
-
     }
+    affectedNumber = combined;
     operatorCalc = [];
     console.log(combined.total);
 
     operatorCalc.push(combined);
-    res.sendStatus(201);
- 
+    res.send(combined);
+  
 })
 
 app.post('/minusSelected', (req,res) => {
@@ -55,11 +59,14 @@ app.post('/minusSelected', (req,res) => {
         total: numOneFromClient - numTwoFromClient
 
      }
+     affectedNumber = combined;
+
      operatorCalc = [];
      console.log(combined.total);
 
      operatorCalc.push(combined);
-      res.sendStatus(201);
+     res.send(combined);
+
  
 })
 
@@ -71,11 +78,14 @@ app.post('/multiplySelected', (req,res) => {
         total: numOneFromClient * numTwoFromClient
 
      }
+     affectedNumber = combined;
+
      operatorCalc = [];
      console.log(combined.total);
 
      operatorCalc.push(combined);
-      res.sendStatus(201);
+     res.send(combined);
+
  
 })
 
@@ -86,10 +96,12 @@ app.post('/divideSelected', (req,res) => {
     let combined = {
         total: numOneFromClient / numTwoFromClient
      }
+     affectedNumber = combined;
      operatorCalc = [];
      console.log(combined.total);
      operatorCalc.push(combined.total);
-      res.sendStatus(201);
+     res.send(combined);
+
  
 })
 

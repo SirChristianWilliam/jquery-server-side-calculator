@@ -3,12 +3,13 @@ $(document).ready(onReady)
 function onReady() {
    loadOn(); // On load, display the empty data values
     
-
     $('p').on('click',operatorClicked);
 
    $('#myForm').on('submit', $('#equalBtn'), submitOn); //When the equalBtn within the form is clicked, call submitOn function
+    
 }
-
+let content;
+let numberFromServer;
 //INITIAL GETTER AND RENDER
 
 function loadOn() {
@@ -27,21 +28,21 @@ function loadOn() {
     })
 }
 
-function render(contentArray,computedValue) { //Last function used to display the content on the DOM
+function render() { //Last function used to display the content on the DOM
     console.log("in render function"); // Works
      $('#pastCalculations').empty(); //Empty the past calculations container
     
-         for(let x of contentArray) { //Loop through the content of the array
+         for(let x of content) { //Loop through the content of the array
             $('#pastCalculations').append(`
             <ul>
                 <li>
-                    ${computedValue}
+                    ${x}
                 </li>
             </ul>
             `) // Append the state array to the DOM that we just emptied
             $('#currentAnswerContainer').empty();
             $('#currentAnswerContainer').append(`
-            ${computedValue}
+            ${x}
             `);
         }
 }
@@ -69,15 +70,17 @@ function submitOn(evt) {
         console.log('POST /numberInput',response);
         content = response;
         console.log("content!!!!!!!!!!");
-         render(content,finalNumber);
+          render();
     })
     .catch((err) => {
         console.log('POST /numberInput',err);
     })
+    
 }
 
 function calculateTheNumbers(mathedUp) {
     let numberFromOperator = mathedUp;
+    console.log("In calculateTheNumbers function");
     console.log(numberFromOperator)
     return numberFromOperator;
 }
@@ -90,7 +93,7 @@ function operatorClicked() {
         righter: $('#rightNumber').val()
     }
     if($('#leftNumber').val() == '' || $('#rightNumber').val() == '') {
-         alert("Please compare two numbers");
+         alert("Please compare two numbers before calculating");
          return;
     }
     else if($(this).text() === '+') {
@@ -100,18 +103,16 @@ function operatorClicked() {
             data:newObj2
         })
         .then((response) => {
+            numberFromServer = response;
             console.log('POST /plusSelected',response);
-            let math1 = Number(response.lEft);
-            let math2 = Number(response.rIght);
-            let mathedUp = Number(math1) + Number(math2);
-            calculateTheNumbers(Number(mathedUp));
-            return;
 
+            calculateTheNumbers(numberFromServer);
+            return;
         })
         .catch((err) => {
             console.log('POST /plusSelected',err);
         })
-    } else if ($(this).text() === '=') {
+    } else if ($(this).text() === '-') {
         $.ajax({
             url:'/minusSelected',
             method:'POST',
@@ -119,11 +120,9 @@ function operatorClicked() {
         })
         .then((response) => {
             console.log('POST /minusSelected',response);
-            let math1 = Number(response.lEft);
-            let math2 = Number(response.rIght);
-            let mathedUp = Number(math1) - Number(math2);
-            calculateTheNumbers(Number(mathedUp));
-            return;
+            numberFromServer = response;
+            calculateTheNumbers(numberFromServer);           
+             return;
          })
         .catch((err) => {
             console.log('POST /minusSelected',err);
@@ -137,10 +136,8 @@ function operatorClicked() {
         })
         .then((response) => {
             console.log('POST /multiplySelected',response);
-            let math1 = Number(response.lEft);
-            let math2 = Number(response.rIght);
-            let mathedUp = Number(math1) * Number(math2);
-            calculateTheNumbers(Number(mathedUp));
+            numberFromServer = response;
+            calculateTheNumbers(numberFromServer);
             return;
 
          })
@@ -156,10 +153,8 @@ function operatorClicked() {
         })
         .then((response) => {
             console.log('POST /divideSelected',response);
-            let math1 = Number(response.lEft);
-            let math2 = Number(response.rIght);
-            let mathedUp = Number(math1) / Number(math2);
-            calculateTheNumbers(Number(mathedUp));
+             numberFromServer = response;
+            calculateTheNumbers(numberFromServer);
             return;
 
          })
