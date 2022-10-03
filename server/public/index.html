@@ -16,10 +16,11 @@
 
  <form id="myForm">
     <input id="leftNumber" placeholder="enter number" required type="text"/>
+    <span class="arrows">&#8646</span>
     <input id="rightNumber" placeholder="enter number" required type="text"/>
     <div id="inputContainer">
         
-        <h3 id="theAnswerText">Answer:</h3>
+        <h3 id="theAnswerText">Equals:</h3>
             <div id="currentAnswerContainer">
                     0
                     <!--display the value from calculation here-->
@@ -46,21 +47,22 @@
     <button id = "equalBtn"> = </button>
     </div>
  </form>
+
     <div id="theClear">
         <button id="clearBtn">C</button>
 
     </div>
 
- 
-
-
-
 <main id="pastCalculationsContainer">
-    <h3 id="past"> Past calculations:</h3>
+    <h2 id="past"> Past calculations:</h2>
     <ul id="pastCalculations">
     <!--append past data here-->
     </ul>
 </main>
 
+<div id="floatingBackContainer">
+<div class ="floatingBackground">
+</div>
+</div>
 </body>
 </html>

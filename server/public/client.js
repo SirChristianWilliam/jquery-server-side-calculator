@@ -11,8 +11,16 @@ function onReady() {
     $('#rightNumber').on('input',changeOperator);
 
     $('#clearBtn').on('click',clearForm);
+   
+    $('#leftNumber').on('focusout',changeStuff); //When the equalBtn within the form is clicked, call submitOn function
+    $('#rightNumber').on('focusout',changeStuff);
 
+    $('#hSixContainer h6').on('click',manualEntry);
 }
+ 
+
+
+
 function changeOperator() {
     whichIsIt = "";
   }
@@ -68,10 +76,11 @@ function render() { //Last function used to display the content on the DOM
                    ${operatorNumber}
                 </li>
             </ul>
-              `) // Append the state array to the DOM that we just emptied
+               `) 
+            // Append the state array to the DOM that we just emptied
             $('#currentAnswerContainer').empty();
             $('#currentAnswerContainer').append(`
-            ${operatorNumber}
+            ${operatorNumber.toFixed(2)}
             `);
  }
 
@@ -202,5 +211,39 @@ function operatorClicked() {
 function clearForm() {
     $('#leftNumber').val('');
     $('#rightNumber').val('');
+    $('#currentAnswerContainer').empty();
 
+}
+
+function manualEntry() {
+    //when "THIS" is clicked, find out which input was targeted last
+}
+let woogedy;
+function changeStuff() {
+    if(this.id == 'leftNumber') {
+        console.log("LEFT");
+        woogedy = "woogedyLeft";
+    } else {
+        woogedy = "woogedyRight";
+    }
+     console.log(this.id);
+     console.log(woogedy);
+   }
+
+function manualEntry() {
+    let numberClicked = "";
+    whichIsIt = "";
+    numberClicked = $(this).text();
+
+    if(woogedy === "woogedyLeft") {
+
+    $('#leftNumber').val($('#leftNumber').val() + numberClicked) 
+    console.log("in woogedy left")
+} 
+    else {
+        $('#rightNumber').val($('#rightNumber').val() + numberClicked);
+        console.log("in woogedy left")
+
+    }
+    
 }

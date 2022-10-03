@@ -26,6 +26,7 @@ app.post('/numberInput', (req,res) => {
         totally: req.body.nummer
     }
      content.push(combined);
+     
      res.send(combined);
 })
 
