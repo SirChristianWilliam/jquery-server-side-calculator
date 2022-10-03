@@ -13,7 +13,9 @@ if you change a value within the the input box, you will have to reselect an ope
 I added media queries to make the page more responsive. I added fun sounds to add to the theme...you'll have to click around to find them (there are three!). 
 
 ## Screen Shot
-![Settings Window](server/public/Screen Shot 2022-10-02 at 9.15.59 PM.png)
+![Alt text](Screen Shot 2022-10-02 at 9.15.59 PM.png?raw=true "Optional Title")
+
+Include one or two screen shots of your project here (optional). Remove if unused.
 
 ### Prerequisites
 
