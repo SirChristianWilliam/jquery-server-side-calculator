@@ -11,6 +11,11 @@ The rest of the time was split about half and half on syling and half on the log
 ## Screen Shot
 [Screen-Shot-2022-10-02-at-9-15-59-PM.png](https://postimg.cc/WtfT7NDn)
 
+[Screen-Shot-2022-10-02-at-9-15-59-PM.png](https://postimg.cc/WtfT7NDn)
+[Screen Shot 2022-10-02 at 9.15.59 PM.png]
+[Screen-Shot-2022-10-02-at-9-15-59-PM.png](https://postimg.cc/WtfT7NDn)
+
+
  
 ## Installation
 
