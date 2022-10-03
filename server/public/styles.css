@@ -199,7 +199,7 @@ body::after {
  #pastCalculationsAdd {
     position: relative;
      left: 31px;
-    z-index:-1;
+    z-index:4;
     display: inline;
     overflow: scroll;
     text-shadow:3px 0px 5px white,
@@ -351,3 +351,5 @@ text-align: center;
     }
     
   }
+
+ 

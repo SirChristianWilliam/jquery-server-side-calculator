@@ -16,11 +16,12 @@ function onReady() {
     $('#rightNumber').on('focusout',changeStuff);
 
     $('#hSixContainer h6').on('click',manualEntry);
-}
+
+  }
+ const ahDio = new Audio('click-21156.mp3');
+ const ahDio2 = new Audio('cork-85200.mp3');
+
  
-
-
-
 function changeOperator() {
     whichIsIt = "";
   }
@@ -88,6 +89,8 @@ function render() { //Last function used to display the content on the DOM
 
 function submitOn(evt) {
     console.log(operatorNumber,"OPERATOR #")
+    ahDio.play();
+
     //let finalNumber = calculateTheNumbers();
    
     evt.preventDefault(); //Prevent page reload
@@ -124,6 +127,7 @@ function calculateTheNumbers(mathedUp) {
 
 function operatorClicked() {
     console.log("Calculation button clicked");
+    ahDio.play();
     let newObj2 = {
         lefter: $('#leftNumber').val(),
         righter: $('#rightNumber').val()
@@ -209,15 +213,14 @@ function operatorClicked() {
 
 }
 function clearForm() {
+    ahDio.play();
     $('#leftNumber').val('');
     $('#rightNumber').val('');
     $('#currentAnswerContainer').empty();
 
 }
 
-function manualEntry() {
-    //when "THIS" is clicked, find out which input was targeted last
-}
+ 
 let woogedy;
 function changeStuff() {
     if(this.id == 'leftNumber') {
@@ -231,6 +234,7 @@ function changeStuff() {
    }
 
 function manualEntry() {
+    ahDio2.play();
     let numberClicked = "";
     whichIsIt = "";
     numberClicked = $(this).text();
@@ -247,3 +251,5 @@ function manualEntry() {
     }
     
 }
+
+ 
