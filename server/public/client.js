@@ -242,7 +242,7 @@ function manualEntry() {
 } 
     else {
         $('#rightNumber').val($('#rightNumber').val() + numberClicked);
-        console.log("in woogedy left")
+        console.log("in woogedy right")
 
     }
     
