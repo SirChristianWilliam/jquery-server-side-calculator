@@ -20,6 +20,8 @@ function onReady() {
   }
  const ahDio = new Audio('click-21156.mp3');
  const ahDio2 = new Audio('cork-85200.mp3');
+ const ahDio3 = new Audio('mixkit-hellhound-monster-attack-dog-wolf-creature-3015.wav');
+
 
  
 function changeOperator() {
@@ -213,7 +215,7 @@ function operatorClicked() {
 
 }
 function clearForm() {
-    ahDio.play();
+    ahDio3.play();
     $('#leftNumber').val('');
     $('#rightNumber').val('');
     $('#currentAnswerContainer').empty();
