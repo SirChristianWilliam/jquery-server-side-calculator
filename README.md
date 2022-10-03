@@ -38,3 +38,6 @@ Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped m
 
 ## Support
 If you have suggestions or issues, please email me at [chrismaki123@gmail.com]
+
+## NOTE:
+The CSS has issues on different screen HEIGHTS. If I have time I will come back and fix it. It's optimal for macs.
