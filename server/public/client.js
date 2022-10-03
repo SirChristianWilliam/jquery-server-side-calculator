@@ -229,5 +229,3 @@ function manualEntry() { //When any of the stretch buttons are clicked, run this
         console.log("in woogedy right"); //If it's woogedy right, change the value of the right input also by the h6 value(number clicked).
     }
 }
-
- 
