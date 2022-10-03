@@ -18,12 +18,10 @@ app.get('/currentVal', (req,res) => {
 })
 
 app.post('/numberInput', (req,res) => {
-    console.log('in POST /numberInput', req.body.nummer);
-    //let numOneFromClient = req.body.firstNum;
-    //let numTwoFromClient = req.body.secondNum;
-    console.log(Number(req.body.nummer), "BALLOON")
+    console.log('in POST /numberInput', req.body.inconsequential);
+    console.log(Number(req.body.inconsequential), "BALLOON")
     let combined = {
-        totally: req.body.nummer
+        numInputKey: req.body.inconsequential
     }
      content.push(combined);
      
