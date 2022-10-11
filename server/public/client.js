@@ -26,7 +26,7 @@ function changeOperator() {
     whichIsIt = ""; //This is necessary so that you don't keep submitting the same number if you switch the input values
     // but forget to select a new operator
 }
-let content = []; 
+// let content = []; 
 let numberFromServer;
 let operatorNumber = 0; //This ends up being the final calculated number between the two input values
 let whichIsIt; //This will end up being a string value of either / + * -
@@ -42,47 +42,45 @@ function loadOn() {
     })
     .then((response) => { //Server sends back response, which is the state array content[]
         content = response; //Server response is an array, apply that value to variable "content"
-        return; //Not sure if this is needed, I don't think it is. I found I didn't need to render here. 
+        console.log(response,"HOUGH JACKSON")
+        render(response);
     })
     .catch((err) => {
         console.log('GET /in currentVal error',err)
     })
 }
-function render() { //This is the function that appends to the DOM
+function render(yeArray) { //This is the function that appends to the DOM
+    console.log(yeArray, "JACKSON HOUGH");
         console.log("in render function"); // Works
-        $.ajax({ 
-            url: '/currentVal',
-            method: 'GET'
-        })//This is the exact same GET request as the loadOn function. The difference is, 
-        .then((response) => {      // is that I return in this one as it won't return undefined,
-            content = response;  // as the top one would.
-        })
-        .catch((err) => {
-            console.log('GET /in currentVal error',err)
-        })
-    $('#pastCalculations').empty(); //Empty the past calculations elements
+       
+     //Empty the past calculations elements
     //Re-appends the emptied content and adds the current values. It appends the
     //value of the current left input value. This is where I call the whichIsIt variable,
     //which now has a string value of - +/ or *. This way, it always appends the correct
     //method of calculation. Finally, the string ends with the operatorNumber variable,
     //which is the current value between the two calcualated input numbers.
-    $('#pastCalculationsContainer').append(` 
+    $('#pastCalculationsContainer').empty();
+    for(let x of yeArray) {
+
+        $('#pastCalculationsContainer').append(` 
         <ul id="pastCalculationsAdd">
             <li>
-                ${$('#leftNumber').val()} ${whichIsIt}
-                ${$('#rightNumber').val()}  = 
-                ${operatorNumber}
+                 ${x.left} ${x.oppy}
+               ${x.right} = 
+               ${x.numInputKey}
             </li>
         </ul>
     `) 
-    $('#currentAnswerContainer').empty(); //Always empty the container on render.
-    $('#currentAnswerContainer').append(`
-        ${operatorNumber.toFixed(2)}
-    `);//This appends only the operatorNumber, replacing the old one. It shows what the
+    }
+        $('#currentAnswerContainer').empty(); //Always empty the container on render.
+        $('#currentAnswerContainer').append(`
+            ${operatorNumber.toFixed(2)}
+        `);
+  //This appends only the operatorNumber, replacing the old one. It shows what the
     //current value of the two calculated input numbers is. toFixed(2), while not perfect
     //in this case, makes it so you don't get super long values when dividing, or multiplying
     //floating point integers.
- } //END OF GETTER AND RENDER
+ }; //END OF GETTER AND RENDER
 
 function submitOn(evt) {
     evt.preventDefault(); //Prevent page reload
@@ -93,7 +91,10 @@ function submitOn(evt) {
         //this prevents undefined values as well as adding incomplete values to the state array.
     }
     let newObj = {
-       inconsequential: operatorNumber //Object with a placeholder key, and a value of whatever the operator # is
+       numbO: operatorNumber, //Object with a placeholder key, and a value of whatever the operator # is
+       oppy: whichIsIt,
+       left: $('#leftNumber').val(),
+       right: $('#rightNumber').val()
     }
     $.ajax({
         url: '/numberInput',
@@ -101,8 +102,8 @@ function submitOn(evt) {
         data: newObj //Send the newObj to the corresponding server POST /numberInput
     })
     .then((response) => {
-        console.log('POST /numberInput',response.numInputKey);
-        render(); //All this did was update the state. When I call render, render will use its
+        console.log('POSTyyyy /numberInput',response);
+        loadOn(); //All this did was update the state. When I call render, render will use its
         //GET method to retrive the updated content array. I know I didn't do this kosher, but it works well regardless.
     })
     .catch((err) => {
@@ -114,7 +115,8 @@ function calculateTheNumbers(mathedUp) {
     console.log("In calculateTheNumbers function",mathedUp.total);
     operatorNumber = mathedUp.total; //The point of this function is to change the global operatorNumber value.
 }
-function operatorClicked() { 
+function operatorClicked(evt) { 
+    evt.preventDefault();
     console.log("Calculation button clicked");
     ahDio.play(); //Audio played whenever an operator button is clicked.
     let newObj2 = {
@@ -196,7 +198,8 @@ function operatorClicked() {
 }//When the calculated value is returned, let the numberFromServer value equal the new object from the server.
 // Before exiting the operatorClicked function, I set the whichIsIt value to a string value, which is 
 // dependent upon which POST method was used.
-function clearForm() {
+function clearForm(evt) {
+    evt.preventDefault();
     ahDio3.play(); //Audio played whenever the clear button is pressed. It's dog themed.
     $('#leftNumber').val('');
     $('#rightNumber').val('');
