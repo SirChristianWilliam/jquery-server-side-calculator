@@ -18,13 +18,17 @@ app.get('/currentVal', (req,res) => {
 app.post('/numberInput', (req,res) => {
 //This is called on submitOn from the client. It inputs an object with a placeholder key
 //that has a value of the operatorNumber.
-    console.log('in POST /numberInput', req.body.inconsequential);
+    console.log('in POST /numberInput', req.body.numbO);
     let combined = {
-        numInputKey: req.body.inconsequential
+        numInputKey: req.body.numbO,
+        oppy: req.body.oppy,
+        left: req.body.left,
+        right: req.body.right
     }//creates new object with placeholder, and the operatorNumber value.
+    console.log(combined,"YEEEEE");
     content.push(combined);//Update the state array(content) with the new object,which
     // has the current operatorNumber's value in it.
-    res.send(combined);//Send back the object, which gets sent to calculateTheNumbers function,
+    res.sendStatus(201);//Send back the object, which gets sent to calculateTheNumbers function,
     //which sets the operatorNumber to the sent object's total.
 })
 
@@ -47,6 +51,7 @@ app.post('/plusSelected', (req,res) => {
     let combined = {
         total: Number(numOneFromClient) + Number(numTwoFromClient)
     }
+     console.log(content);
     res.send(combined);
 })
 app.post('/minusSelected', (req,res) => {
@@ -56,7 +61,7 @@ app.post('/minusSelected', (req,res) => {
     let combined = {
         total: numOneFromClient - numTwoFromClient
      }
-      console.log(combined.total);
+      console.log(content);
       res.send(combined);
 })
 app.post('/multiplySelected', (req,res) => {
@@ -66,7 +71,7 @@ app.post('/multiplySelected', (req,res) => {
     let combined = {
         total: numOneFromClient * numTwoFromClient
      }
-      console.log(combined.total);
+      console.log(content);
       res.send(combined);
 })
 app.post('/divideSelected', (req,res) => {
@@ -76,6 +81,6 @@ app.post('/divideSelected', (req,res) => {
     let combined = {
         total: numOneFromClient / numTwoFromClient
      }
-       console.log(combined.total);
+      console.log(content);
       res.send(combined);
 })

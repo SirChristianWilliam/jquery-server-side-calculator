@@ -172,6 +172,9 @@ body::after {
     display: inline-block;
     left: 42px;
     bottom: 400px;
+    position: relative;
+    top: -610px;
+    left: 40px;
     text-shadow:3px 0px 5px white,
     0px 3px 5px white,
     -3px 0px 5px white,
@@ -198,6 +201,7 @@ body::after {
  }
  #pastCalculationsAdd {
     position: relative;
+    top: 33px;
      left: 31px;
     z-index:4;
     display: inline;
@@ -263,48 +267,48 @@ text-align: center;
     cursor: pointer;
     text-shadow:0px 0px 3px black;
   }
- .h6One {
+ #h6One {
     top: 220px;
     left: 4px;
  }
- .h6Two {
+ #h6Two {
     top: 220px;
     left: 64px;
  }
- .h6Three {
+ #h6Three {
     top: 220px;
     left: 124px;
  }
- .h6Four {
+ #h6Four {
     top: 160px;
     left: 4px;
   } 
- .h6Five {
+ #h6Five {
     top: 160px;
     left: 64px;
   }
- .h6Six {
+ #h6Six {
     top: 160px;
     left: 124px;
   } 
- .h6Seven {
+ #h6Seven {
      top: 100px;
     left: 4px;
  }
- .h6Eight {
+ #h6Eight {
     top: 100px;
     left: 64px;
   } 
- .h6Nine {
+ #h6Nine {
     top: 100px;
     left: 124px;
   }
- .h6Zero {
+ #h6Zero {
     top: 280px;
     width: 75px !important;
     left: 4px;
   }
- .h6Period {
+ #h6Period {
     top: 280px;
     left: 124px;
   }
