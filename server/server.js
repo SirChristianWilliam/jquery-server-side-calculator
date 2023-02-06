@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(port, () => {
     console.log("Show this when the server is active");
 })
-let content = []; //This is my state array variable
+let content = [];  //This is my state array variable
  
 app.get('/currentVal', (req,res) => {
      console.log("getting content",content);
