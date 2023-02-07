@@ -19,13 +19,15 @@ header {
     border-radius: 15px;
     padding: 3px 5px;
     color:white;
+    z-index: 1;
+
 }
 #delHis:hover {
    font-style: italic;
    text-decoration: underline;
 }
 form#myForm {
-    width:100%;
+    /* width:100%; */
     margin-top: -100px;
 
     padding:30px;
@@ -172,7 +174,7 @@ p {
  #clearBtn {
     width: 164px;
     height: 40px;
-    margin-right: -4px;
+    margin-right: 35px;
     font-size: 20px;
     cursor:pointer;
     z-index:1;
@@ -203,7 +205,7 @@ p {
    position: relative;
    bottom: 600px;
    left: 22px;
-   overflow: scroll;
+   overflow: hidden;
 
    z-index: -1;
      }
@@ -370,8 +372,8 @@ text-align: center;
         margin-left:155px;
      }
      #theClear {
-        margin-left:26px;
-     }
+      margin-left: 12px;
+   }
   }
 
   @media only screen and (max-width:700px) {
