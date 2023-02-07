@@ -9,6 +9,21 @@ header {
     color:white;
     padding:20px;
 }
+#delHis {
+   position: relative;
+    top: -580px;
+    left: -120px;
+    cursor: pointer;
+    background-color: rgba(255, 0, 0, 0.64);
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 3px 5px;
+    color:white;
+}
+#delHis:hover {
+   font-style: italic;
+   text-decoration: underline;
+}
 form#myForm {
     width:100%;
     margin-top: -100px;

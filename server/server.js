@@ -87,3 +87,10 @@ app.post('/divideSelected', (req,res) => {
       console.log(content);
       res.send(combined);
 })
+
+app.delete('/deleteHistory', (req,res) => {
+    console.log('in delete /deleteHistory');
+
+    content = [];
+      console.log(content);
+ })

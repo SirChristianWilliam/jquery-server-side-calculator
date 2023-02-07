@@ -16,11 +16,25 @@ function onReady() {
     $('#rightNumber').on('focusout',changeStuff);
 
     $('#hSixContainer h6').on('click',manualEntry);
-
+    $('#delHis').on('click', deleteHistory );
   }
  const ahDio = new Audio('click-21156.mp3'); //Audio for operator buttons and submit button
  const ahDio2 = new Audio('cork-85200.mp3'); //Audio for stretch buttons
  const ahDio3 = new Audio('mixkit-hellhound-monster-attack-dog-wolf-creature-3015.wav'); //Audio for the Clear button
+
+ function deleteHistory() {
+    console.log("history deleted");
+    $.ajax({
+        url: '/deleteHistory',
+        method: 'DELETE'
+    })
+    .then(() => {
+      })
+    .catch((err) => {
+        console.log('DELETE /deleteHistory',err);
+    })
+    window.location.reload();
+ }
 
 function changeOperator() {
     whichIsIt = ""; //This is necessary so that you don't keep submitting the same number if you switch the input values
